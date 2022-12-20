@@ -3,7 +3,7 @@ import ExchangeTable from "./components/ExchangeTable";
 
 function App() {
   return (
-      <ExchangeTable />
+    <ExchangeTable/>
   )
 }
 

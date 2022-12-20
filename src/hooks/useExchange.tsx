@@ -1,7 +1,8 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
-import {GetExchangeRate, getExchangeRate} from "../api/exchangeHandlers";
+import {getExchangeRate} from "../api/exchangeHandlers";
 import {LocalStorageKeys} from "../constants/localStorageKeys";
 import {useTimer} from "./useTimer";
+import {GetExchangeRate} from "../interfaces/exchanges";
 
 const TIMER_TO_REFETCH = 60
 

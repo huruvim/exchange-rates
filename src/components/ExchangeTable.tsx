@@ -13,11 +13,7 @@ import {
 import RefreshIcon from '@mui/icons-material/Refresh';
 import {useExchange} from "../hooks/useExchange";
 import {useMemo} from "react";
-
-interface RowsI {
-  category: string;
-  rate: number;
-}
+import {RowsI} from "../interfaces/exchanges";
 
 const createData = (category: string, rate: number) => ({
   category,
@@ -25,7 +21,7 @@ const createData = (category: string, rate: number) => ({
 });
 
 const ExchangeTable = () => {
-  const { data, onRefresh, isLoading } = useExchange();
+  const {data, onRefresh, isLoading} = useExchange();
   const rows: RowsI[] = useMemo(() => {
     if (data) {
       return Object.entries(data.exchange_rates).map(([category, rate]) => {
@@ -37,15 +33,16 @@ const ExchangeTable = () => {
 
   if (isLoading) {
     return (
-      <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
+      <Box sx={{display: 'flex'}}>
+        <CircularProgress/>
       </Box>
     )
   }
   return (
     <div style={{position: 'relative', width: '100%'}}>
-      <Button onClick={onRefresh}
-              style={{position: 'absolute', top: -40, right: -60, zIndex: 3}}><RefreshIcon/></Button>
+      <Button onClick={onRefresh} style={{position: 'absolute', top: -40, right: -60, zIndex: 3}}>
+        <RefreshIcon/>
+      </Button>
       <Paper sx={{width: '100%', overflowY: 'hidden'}}>
         <TableContainer sx={{maxHeight: 'calc(100vh - 140px)'}}>
           <Table stickyHeader aria-label="sticky table">
